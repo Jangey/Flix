@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AlamofireImage
+
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
    
+    var movies: [[String: Any]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,23 +29,31 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as![String: Any]
                 let movies = dataDictionary["results"] as! [[String: Any]]
-                for movie in movies {
-                    let title = movie["title"] as! String
-                    print(title)
-                }
-                // print(dataDictionary)
+                self.movies = movies
+                self.tableView.reloadData()
             }
         }
         task.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return movies.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        let movie = movies[indexPath.row]
+        let title = movie["title"] as! String
+        let overview = movie["overview"] as! String
+        cell.titleLabel.text = title
+        cell.overviewLable.text = overview
+        
+        let posterPathString = movie["poster_path"] as! String
+        let baseURLString = "https://image.tmdb.org/t/p/w500"
+        let posterURL = URL(string: baseURLString + posterPathString)!
+        cell.posterImageView.af_setImage(withURL: posterURL)
+        
         return cell
     }
 
