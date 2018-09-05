@@ -10,9 +10,11 @@ import UIKit
 import AlamofireImage
 
 
-class NowPlayingViewController: UIViewController, UITableViewDataSource {
+class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
-   
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var movies: [[String: Any]] = []
     var refreshControl: UIRefreshControl!
     
@@ -22,10 +24,13 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
-        
+        tableView.rowHeight = 180
         tableView.dataSource = self
+        searchBar.delegate = self
+        self.activityIndicator.startAnimating()
         fetchMovies()
     }
+    
     
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
         fetchMovies()
@@ -39,15 +44,25 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
             // this will run when the network request returns
             if let error = error {
                 print(error.localizedDescription)
+                self.offlineAlarm(title:"Cannot Get Movies", message:"The Internet connetion appears to be offline.")
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as![String: Any]
                 let movies = dataDictionary["results"] as! [[String: Any]]
                 self.movies = movies
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
             }
         }
         task.resume()
+    }
+    
+    func offlineAlarm (title: String, message: String) {
+            let alertController = UIAlertController(title: "Cannot Get Movies", message:
+                "The Internet connetion appears to be offline.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,7 +85,15 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
-
+    
+    /*
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        movies = searchText.isEmpty ? movies : movies.filter { (item: String) -> Bool in
+            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+    }
+    */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
