@@ -177,7 +177,7 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="120.44334975369459"/>
         </scene>
-        <!--Superhero View Controller-->
+        <!--QuickView-->
         <scene sceneID="f0A-oa-dTC">
             <objects>
                 <viewController id="bgj-6s-D1D" customClass="SuperheroViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
@@ -189,7 +189,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="Bva-DD-89J">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bva-DD-89J">
                                     <size key="itemSize" width="125" height="176"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -203,7 +203,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="176"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vUS-px-Zzq">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vUS-px-Zzq">
                                                     <rect key="frame" x="0.0" y="0.0" width="167" height="176"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
@@ -219,7 +219,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RNA-2O-fFr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SIQ-7e-qZL"/>
+                    <navigationItem key="navigationItem" title="QuickView" id="SIQ-7e-qZL"/>
                     <connections>
                         <outlet property="collectionView" destination="B28-o0-QOa" id="Hjf-Tv-6FU"/>
                     </connections>
@@ -228,11 +228,11 @@
             </objects>
             <point key="canvasLocation" x="1071.2" y="833.49753694581284"/>
         </scene>
-        <!--Superhero-->
+        <!--QuickView-->
         <scene sceneID="GK8-Py-3w3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1gI-hM-AuI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Superhero" image="superhero_tabbar_item" id="0cr-25-Bew"/>
+                    <tabBarItem key="tabBarItem" title="QuickView" image="superhero_tabbar_item" id="0cr-25-Bew"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qla-7y-ZwO">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
