@@ -1,5 +1,5 @@
 //
-//  SuperheroViewController.swift
+//  PopularViewController.swift
 //  Flix
 //
 //  Created by Jangey Lu on 9/10/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuperheroViewController: UIViewController, UICollectionViewDataSource {
+class PopularViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!
     var movies:[[String: Any]] = []
     

@@ -180,7 +180,7 @@
         <!--Popular-->
         <scene sceneID="f0A-oa-dTC">
             <objects>
-                <viewController id="bgj-6s-D1D" customClass="SuperheroViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bgj-6s-D1D" customClass="PopularViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J0k-pE-jyz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9B3-fz-EiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071.2" y="833.49753694581284"/>
+            <point key="canvasLocation" x="2022" y="833"/>
         </scene>
         <!--Popular-->
         <scene sceneID="GK8-Py-3w3">
@@ -246,7 +246,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfk-cC-nzm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.80000000000001" y="833.49753694581284"/>
+            <point key="canvasLocation" x="1079" y="833"/>
         </scene>
     </scenes>
     <resources>
