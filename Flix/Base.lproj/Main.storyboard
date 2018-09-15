@@ -19,44 +19,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5fz-zj-mHL">
-                                <rect key="frame" x="-44" y="88" width="463" height="694"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="694"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="2CZ-Y0-UgD">
-                                    <rect key="frame" x="0.0" y="0.0" width="463" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="180" id="reF-GK-BQ6" userLabel="MoiveCell" customClass="MovieCell" customModule="Flix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="463" height="180"/>
+                                        <rect key="frame" x="0.0" y="72" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="reF-GK-BQ6" id="vS1-7f-Zhu">
-                                            <rect key="frame" x="0.0" y="0.0" width="463" height="179.66666666666666"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="reF-GK-BQ6" id="vS1-7f-Zhu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="179.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Meg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP1-w6-njo">
-                                                    <rect key="frame" x="142" y="11" width="218" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="The Meg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP1-w6-njo">
+                                                    <rect key="frame" x="142" y="8.3333333333333712" width="97.333333333333314" height="29"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrR-23-cef">
-                                                    <rect key="frame" x="142" y="48" width="218" height="123"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrR-23-cef">
+                                                    <rect key="frame" x="142" y="45" width="225" height="142"/>
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.1213029033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <string key="text">A deep sea submersible pilot revisits his past fears in the Mariana Trench, and accidentally unleashes the seventy foot ancestor of the Great White Shark believed to be extinct.</string>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwz-1j-Aba">
-                                                    <rect key="frame" x="15" y="11" width="119" height="160"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwz-1j-Aba">
+                                                    <rect key="frame" x="8" y="8.3333333333333286" width="120" height="160"/>
                                                     <color key="backgroundColor" red="0.0" green="1" blue="0.1213029033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="DGh-2y-FKu"/>
+                                                        <constraint firstAttribute="height" constant="160" id="GrG-dv-6dw"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lrR-23-cef" firstAttribute="top" secondItem="IP1-w6-njo" secondAttribute="bottom" constant="8" id="4PW-PC-66K"/>
+                                                <constraint firstItem="jwz-1j-Aba" firstAttribute="top" secondItem="vS1-7f-Zhu" secondAttribute="top" constant="8" id="JC5-Ve-m4A"/>
+                                                <constraint firstItem="IP1-w6-njo" firstAttribute="top" secondItem="jwz-1j-Aba" secondAttribute="top" id="JgJ-Ne-xWz"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IP1-w6-njo" secondAttribute="trailing" constant="8" id="Pph-um-ylc"/>
+                                                <constraint firstAttribute="bottom" secondItem="jwz-1j-Aba" secondAttribute="bottom" constant="8" id="Vzs-7r-jQJ"/>
+                                                <constraint firstItem="jwz-1j-Aba" firstAttribute="leading" secondItem="vS1-7f-Zhu" secondAttribute="leading" constant="8" id="W73-aj-Wef"/>
+                                                <constraint firstItem="lrR-23-cef" firstAttribute="leading" secondItem="IP1-w6-njo" secondAttribute="leading" id="inx-lN-EGr"/>
+                                                <constraint firstAttribute="trailing" secondItem="lrR-23-cef" secondAttribute="trailing" constant="8" id="pGP-Vc-N4p"/>
+                                                <constraint firstItem="IP1-w6-njo" firstAttribute="leading" secondItem="jwz-1j-Aba" secondAttribute="trailing" constant="14" id="r3W-Dr-gog"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lrR-23-cef" secondAttribute="bottom" constant="8" id="r6c-l9-8Am"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="overviewLable" destination="lrR-23-cef" id="VpL-Du-DyO"/>
@@ -75,10 +90,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5fz-zj-mHL" firstAttribute="top" secondItem="bXW-fH-UDS" secondAttribute="top" id="8YB-eN-TXw"/>
-                            <constraint firstItem="5fz-zj-mHL" firstAttribute="trailing" secondItem="bXW-fH-UDS" secondAttribute="trailing" constant="44" id="DMT-hx-F4a"/>
-                            <constraint firstItem="bXW-fH-UDS" firstAttribute="leading" secondItem="5fz-zj-mHL" secondAttribute="leading" constant="44" id="PuD-aK-fSx"/>
-                            <constraint firstItem="5fz-zj-mHL" firstAttribute="bottom" secondItem="bXW-fH-UDS" secondAttribute="bottom" constant="53" id="wS7-TB-eds"/>
+                            <constraint firstItem="5fz-zj-mHL" firstAttribute="leading" secondItem="bXW-fH-UDS" secondAttribute="leading" id="Pux-ze-s4B"/>
+                            <constraint firstItem="5fz-zj-mHL" firstAttribute="top" secondItem="bXW-fH-UDS" secondAttribute="top" id="bXV-eb-GNS"/>
+                            <constraint firstItem="5fz-zj-mHL" firstAttribute="bottom" secondItem="bXW-fH-UDS" secondAttribute="bottom" constant="53" id="fN9-X9-OLJ"/>
+                            <constraint firstItem="bXW-fH-UDS" firstAttribute="trailing" secondItem="5fz-zj-mHL" secondAttribute="trailing" id="ycB-VO-MOn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bXW-fH-UDS"/>
                     </view>
@@ -91,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2020.9359605911332" y="119.2"/>
+            <point key="canvasLocation" x="2020" y="118.96551724137932"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="mdY-eO-yDY">
