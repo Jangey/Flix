@@ -84,6 +84,7 @@
                                 <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5fz-zj-mHL" firstAttribute="leading" secondItem="bXW-fH-UDS" secondAttribute="leading" id="Pux-ze-s4B"/>
                             <constraint firstItem="5fz-zj-mHL" firstAttribute="top" secondItem="bXW-fH-UDS" secondAttribute="top" id="bXV-eb-GNS"/>
@@ -220,7 +221,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B28-o0-QOa">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="668"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bva-DD-89J">
                                     <size key="itemSize" width="125" height="176"/>
@@ -254,12 +255,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-V2-LCZ">
+                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RNA-2O-fFr" firstAttribute="trailing" secondItem="B28-o0-QOa" secondAttribute="trailing" id="7m7-5e-5aa"/>
+                            <constraint firstItem="6gb-V2-LCZ" firstAttribute="leading" secondItem="RNA-2O-fFr" secondAttribute="leading" id="GcO-s0-P7R"/>
                             <constraint firstItem="B28-o0-QOa" firstAttribute="leading" secondItem="RNA-2O-fFr" secondAttribute="leading" id="bFc-sP-Xmy"/>
-                            <constraint firstItem="B28-o0-QOa" firstAttribute="top" secondItem="RNA-2O-fFr" secondAttribute="top" id="oFa-N8-kXh"/>
+                            <constraint firstItem="6gb-V2-LCZ" firstAttribute="top" secondItem="RNA-2O-fFr" secondAttribute="top" id="fTu-l9-7pu"/>
+                            <constraint firstItem="B28-o0-QOa" firstAttribute="top" secondItem="RNA-2O-fFr" secondAttribute="top" constant="56" id="oFa-N8-kXh"/>
+                            <constraint firstItem="6gb-V2-LCZ" firstAttribute="trailing" secondItem="RNA-2O-fFr" secondAttribute="trailing" id="r0H-Pn-CZo"/>
                             <constraint firstItem="B28-o0-QOa" firstAttribute="bottom" secondItem="RNA-2O-fFr" secondAttribute="bottom" constant="83" id="z2j-6I-OOy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RNA-2O-fFr"/>
@@ -268,6 +276,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="tcy-68-fu2" id="q8b-GN-9Ut"/>
                         <outlet property="collectionView" destination="B28-o0-QOa" id="Hjf-Tv-6FU"/>
+                        <outlet property="searchBar" destination="6gb-V2-LCZ" id="BDh-Ch-tcf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9B3-fz-EiD" userLabel="First Responder" sceneMemberID="firstResponder"/>

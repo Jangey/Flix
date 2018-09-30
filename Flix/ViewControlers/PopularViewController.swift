@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopularViewController: UIViewController, UICollectionViewDataSource {
+class PopularViewController: UIViewController, UICollectionViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     //var movies:[[String: Any]] = []
@@ -16,6 +16,8 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var refreshControl: UIRefreshControl!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +25,8 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(PopularViewController.didPullToRefresh(_:)), for: .valueChanged)
         collectionView.insertSubview(refreshControl, at: 0)
-        
         collectionView.dataSource = self
+        searchBar.delegate = self
         
         //set layout
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -107,6 +109,25 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
                 self.activityIndicator.stopAnimating()
             }
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        movies = searchText.isEmpty ? movies: movies.filter { (item: Movie) -> Bool in
+            return item.title.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            
+        }
+        self.collectionView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        fetchMovies()
+        searchBar.resignFirstResponder()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
