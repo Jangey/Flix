@@ -14,10 +14,19 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
     //var movies:[[String: Any]] = []
     var movies: [Movie] = []
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // set pull down refresh
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(PopularViewController.didPullToRefresh(_:)), for: .valueChanged)
+        collectionView.insertSubview(refreshControl, at: 0)
+        
         collectionView.dataSource = self
+        
+        //set layout
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = layout.minimumInteritemSpacing
@@ -27,6 +36,11 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
             interItemSpacingTotal / cellsPerLine
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         
+        self.activityIndicator.startAnimating()
+        fetchMovies()
+    }
+    
+    @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
         fetchMovies()
     }
     
@@ -89,6 +103,8 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
             if let movies = movies {
                 self.movies = movies
                 self.collectionView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
             }
         }
     }
