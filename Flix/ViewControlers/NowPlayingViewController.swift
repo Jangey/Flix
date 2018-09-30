@@ -119,13 +119,26 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
         return cell
     }
 
-    /*
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        movies = searchText.isEmpty ? movies : movies.filter { (item: String) -> Bool in
-            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        movies = searchText.isEmpty ? movies: movies.filter { (item: Movie) -> Bool in
+            return item.title.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            
         }
+        self.tableView.reloadData()
     }
- */
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        fetchMovies()
+        searchBar.resignFirstResponder()
+    }
+ 
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
