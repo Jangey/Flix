@@ -15,7 +15,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var movies: [[String: Any]] = []
+    //var movies: [[String: Any]] = []
+    var movies: [Movie] = []
     var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
@@ -46,9 +47,19 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
                 print(error.localizedDescription)
                 self.offlineAlarm(title:"Cannot Get Movies", message:"The Internet connetion appears to be offline.")
             } else if let data = data {
+                /*
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as![String: Any]
                 let movies = dataDictionary["results"] as! [[String: Any]]
                 self.movies = movies
+                */
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
+                self.movies = []
+                for dictionary in movieDictionaries {
+                    let movie = Movie(dictionary: dictionary)
+                    self.movies.append(movie)
+                }
+                
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndicator.stopAnimating()
@@ -69,12 +80,16 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
         return movies.count
     }
     
-    
+    /*
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        
         let movie = movies[indexPath.row]
-        let title = movie["title"] as! String
-        let overview = movie["overview"] as! String
+        //let title = movie["title"] as! String
+        //let overview = movie["overview"] as! String
+        let title = movie.title
+        let overview = movie.overview
+            
         cell.titleLabel.text = title
         cell.overviewLable.text = overview
         
@@ -85,7 +100,13 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
         
         return cell
     }
-    
+    */
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        cell.movie = movies[indexPath.row]
+        return cell
+    }
+
     /*
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         movies = searchText.isEmpty ? movies : movies.filter { (item: String) -> Bool in

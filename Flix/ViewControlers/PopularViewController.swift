@@ -9,8 +9,10 @@
 import UIKit
 
 class PopularViewController: UIViewController, UICollectionViewDataSource {
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    var movies:[[String: Any]] = []
+    //var movies:[[String: Any]] = []
+    var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,7 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
-    
+    /*
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! PosterCell
         let movie = movies[indexPath.item]
@@ -40,6 +42,13 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
             let posterURL = URL(string: baseURLString + posterPathString)!
             cell.posterImageView.af_setImage(withURL: posterURL)
         }
+        return cell
+    }
+    */
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! PosterCell
+        cell.movie = movies[indexPath.row]
         return cell
     }
 
@@ -53,9 +62,18 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
                 print(error.localizedDescription)
                 //self.offlineAlarm(title:"Cannot Get Movies", message:"The Internet connetion appears to be offline.")
             } else if let data = data {
+                /*
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as![String: Any]
                 let movies = dataDictionary["results"] as! [[String: Any]]
                 self.movies = movies
+                */
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
+                self.movies = []
+                for dictionary in movieDictionaries {
+                    let movie = Movie(dictionary: dictionary)
+                    self.movies.append(movie)
+                }
                 self.collectionView.reloadData()
                 //self.refreshControl.endRefreshing()
                 //self.activityIndicator.stopAnimating()
