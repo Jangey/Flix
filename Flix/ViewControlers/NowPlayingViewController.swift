@@ -37,6 +37,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
         fetchMovies()
     }
     
+    /*
     func fetchMovies() {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=91398a32250742c3f74df4b98d70e3af")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -66,6 +67,17 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
             }
         }
         task.resume()
+    }
+    */
+    func fetchMovies() {
+        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
+                self.movies = movies
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
+            }
+        }
     }
     
     func offlineAlarm (title: String, message: String) {

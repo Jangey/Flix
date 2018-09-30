@@ -52,6 +52,7 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
 
+    /*
     func fetchMovies() {
         let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=91398a32250742c3f74df4b98d70e3af")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -80,6 +81,16 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
             }
         }
         task.resume()
+    }
+    */
+    
+    func fetchMovies() {
+        MovieApiManager().popularMovies { (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
+                self.movies = movies
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
