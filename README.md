@@ -197,7 +197,7 @@ The following **required** user stories are complete:
 The following **additional** user stories are implemented:
 
 - [x] Insert Search Bar for both table view and collection view
-      
+- [x] Both table view and collection view have pull down refresh & Activity Indicator     
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -208,7 +208,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/d85sjas.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/8ZEj2OO.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
